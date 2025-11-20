@@ -1,1 +1,27 @@
+site_name: Melon Notes
+site_description: "Public notes, powered by SilverBullet & MkDocs"
+site_url: https://melvin-suter.github.io/silver-site/
 
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.highlight
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Guides:
+      - "How this works": guide.md
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - footnotes
+  - codehilite
+  - tables
+
+extra:
+  generator: false
