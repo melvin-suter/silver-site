@@ -1,0 +1,3 @@
+# Home
+
+Welcome to my site. Here I do stuff, don't ask me why.
