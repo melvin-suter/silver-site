@@ -1,0 +1,75 @@
+/* ===== SilverBullet-ish base palette ===== */
+
+:root {
+  /* Light mode */
+  --sb-bg: #f5f5f7;
+  --sb-surface: #ffffff;
+  --sb-sidebar-bg: #f1f1f4;
+  --sb-border: #d6d6dd;
+  --sb-muted: #888997;
+  --sb-text: #20212a;
+  --sb-accent: #3f7ae0;
+}
+
+/* Dark mode when using the "slate" scheme in Material */
+[data-md-color-scheme="slate"] {
+  --sb-bg: #111217;
+  --sb-surface: #181921;
+  --sb-sidebar-bg: #14151d;
+  --sb-border: #2a2b36;
+  --sb-muted: #9a9db0;
+  --sb-text: #f4f4f7;
+  --sb-accent: #6d9dff;
+}
+
+/* Tie Material colors roughly to these */
+:root,
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: var(--sb-bg);
+  --md-default-fg-color: var(--sb-text);
+  --md-default-fg-color--light: var(--sb-muted);
+  --md-primary-fg-color: var(--sb-accent);
+  --md-primary-fg-color--light: var(--sb-accent);
+  --md-primary-fg-color--dark: var(--sb-accent);
+  --md-accent-fg-color: var(--sb-accent);
+}
+
+/* ===== Global layout: flat, centered, “note app” feel ===== */
+
+body {
+  background-color: var(--sb-bg);
+}
+
+/* Main content area: centered, max width, like a note editor */
+.md-main__inner {
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
+}
+
+.md-content {
+  max-width: 900px;
+}
+
+/* Content surface card */
+.md-content__inner {
+  background-color: var(--sb-surface);
+  border: 1px solid var(--sb-border);
+  border-radius: 10px;
+  padding: 1.75rem 2rem;
+  box-shadow: none;
+}
+
+/* Reduce default top spacing a bit */
+.md-typeset h1:first-child {
+  margin-top: 0;
+}
+
+/* ===== Sidebar: more app-like, less old-school docs ===== */
+
+.md-sidebar--primary {
+  background-color: var(--sb-sidebar-bg);
+  border-right: 1px solid var(--sb-border);
+}
+
+/* Navigation links: tighter, calmer */
+.md
