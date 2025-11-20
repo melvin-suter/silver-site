@@ -11,8 +11,15 @@ theme:
     - search.highlight
     - search.suggest
 
+plugins:
+- search
+- blog
+- tags
+
 nav:
-  - Home: index.md
+  - Home: home.md
+  - Blog:
+      - blog/index.md
   - Guides:
       - "How this works": guide.md
 
