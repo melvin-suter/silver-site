@@ -1,6 +1,7 @@
 site_name: Melon Notes
 site_description: "Public notes, powered by SilverBullet & MkDocs"
 site_url: https://melvin-suter.github.io/silver-site/
+docs_dir: .
 
 theme:
   name: material
