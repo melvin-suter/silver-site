@@ -1,1 +1,3 @@
-# Index
+# My Blog
+
+Just tech stuff. :)
