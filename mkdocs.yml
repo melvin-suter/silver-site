@@ -10,6 +10,15 @@ theme:
     - navigation.top
     - search.highlight
     - search.suggest
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: indigo
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: indigo
 
 plugins:
 - search
