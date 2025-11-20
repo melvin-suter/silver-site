@@ -6,3 +6,54 @@ tags:
 - linux
 - docker
 ---
+
+
+I’ve tried to add GeoIP2 to my Nginx Proxy Manager. After finding a few blogs and articles that “explain” how to do it, I got more confused. Here is the final guide, that will help you.
+
+First you need to setup a 2nd docker container, that will download your GeoIP2 database from maxmind. They got a docker image for that. Should be simple.
+
+After that, add the databases to your nginx proxymanager like this:
+
+```yaml
+(...)
+services:
+  npm:
+    (...)
+    volumes:
+      (...)
+      - /your/geoip/folder:/geoip
+```
+
+Now add files to the nginx proxy manager data volume.
+
+Add/create the file `nginx/custom/http_top.conf` to your npm data folder:
+
+```yaml
+geoip2 /geoip/GeoLite2-Country.mmdb {
+    $geoip2_data_country_iso_code country iso_code;
+}
+
+
+map $geoip2_data_country_iso_code $allowed_country {
+  default 0;
+  CH 1;
+  # Add your countries like CH here
+}
+```
+
+Add/create the file `nginx/custom/root_top.conf` to your npm data folder:
+
+```
+load_module /usr/lib/nginx/modules/ngx_http_geoip2_module.so;
+load_module /usr/lib/nginx/modules/ngx_stream_geoip2_module.so;
+```
+
+Now add this to all your proxies (or the ones you want it to work for) in the advanced tab:
+
+```
+if ($allowed_country = 0) {
+	return 404;
+}
+```
+IT WORKS NOW!
+
