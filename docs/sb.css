@@ -1,29 +1,22 @@
-/* ===== SilverBullet-ish base palette ===== */
+/* ===== Base: dark, editor-like, monochrome-ish ===== */
 
 :root {
-  /* Light mode */
-  --sb-bg: #f5f5f7;
-  --sb-surface: #ffffff;
-  --sb-sidebar-bg: #f1f1f4;
-  --sb-border: #d6d6dd;
-  --sb-muted: #888997;
-  --sb-text: #20212a;
-  --sb-accent: #3f7ae0;
+  --sb-bg: #050509;
+  --sb-surface: #0c0c12;
+  --sb-sidebar-bg: #050509;
+  --sb-border: #222430;
+  --sb-muted: #7c8199;
+  --sb-text: #e4e7f5;
+  --sb-accent: #5aa9ff;
+  --sb-accent-soft: rgba(90, 169, 255, 0.18);
+
+  --sb-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Ubuntu Mono",
+    "Fira Mono", "Source Code Pro", monospace;
 }
 
-/* Dark mode when using the "slate" scheme in Material */
-[data-md-color-scheme="slate"] {
-  --sb-bg: #111217;
-  --sb-surface: #181921;
-  --sb-sidebar-bg: #14151d;
-  --sb-border: #2a2b36;
-  --sb-muted: #9a9db0;
-  --sb-text: #f4f4f7;
-  --sb-accent: #6d9dff;
-}
+/* Tie Material colors to our palette */
 
-/* Tie Material colors roughly to these */
-:root,
+[data-md-color-scheme="slate"],
 [data-md-color-scheme="default"] {
   --md-default-bg-color: var(--sb-bg);
   --md-default-fg-color: var(--sb-text);
@@ -34,42 +27,216 @@
   --md-accent-fg-color: var(--sb-accent);
 }
 
-/* ===== Global layout: flat, centered, “note app” feel ===== */
+/* ===== Global layout: full-height app, central pane ===== */
 
+html,
 body {
   background-color: var(--sb-bg);
 }
 
-/* Main content area: centered, max width, like a note editor */
+.md-main {
+  flex: 1 0 auto;
+}
+
 .md-main__inner {
-  margin: 1.5rem auto;
-  padding: 0 1.5rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 2rem;
 }
 
 .md-content {
-  max-width: 900px;
+  max-width: 980px;
 }
 
-/* Content surface card */
+/* Center pane with subtle border like an editor surface */
+
 .md-content__inner {
   background-color: var(--sb-surface);
+  border-radius: 6px;
   border: 1px solid var(--sb-border);
-  border-radius: 10px;
-  padding: 1.75rem 2rem;
+  padding: 1.4rem 1.6rem;
   box-shadow: none;
 }
 
-/* Reduce default top spacing a bit */
-.md-typeset h1:first-child {
-  margin-top: 0;
-}
-
-/* ===== Sidebar: more app-like, less old-school docs ===== */
+/* ===== Sidebar: flat, narrow, utilitarian ===== */
 
 .md-sidebar--primary {
   background-color: var(--sb-sidebar-bg);
   border-right: 1px solid var(--sb-border);
 }
 
-/* Navigation links: tighter, calmer */
-.md
+/* Make nav feel like a tree in a code editor */
+
+.md-nav {
+  font-family: var(--sb-font-mono);
+  font-size: 0.8rem;
+}
+
+.md-nav__item {
+  border-radius: 4px;
+}
+
+.md-nav__link {
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+}
+
+.md-nav__link,
+.md-nav__link:link,
+.md-nav__link:visited {
+  color: var(--sb-muted);
+}
+
+.md-nav__item--active > .md-nav__link,
+.md-nav__link--active {
+  background-color: var(--sb-accent-soft);
+  color: var(--sb-accent);
+}
+
+/* Reduce indentation noise a bit */
+
+.md-nav__list {
+  padding-left: 0.3rem;
+}
+
+/* ===== Header / top bar: flat, no branding circus ===== */
+
+.md-header {
+  background-color: var(--sb-sidebar-bg);
+  border-bottom: 1px solid var(--sb-border);
+  box-shadow: none;
+}
+
+.md-header__inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* Title + nav feel like a top bar in an app */
+
+.md-header__title {
+  font-family: var(--sb-font-mono);
+  font-size: 0.9rem;
+}
+
+/* ===== Typography: monospace “note app” feel ===== */
+
+.md-typeset {
+  font-family: var(--sb-font-mono);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.md-typeset h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.md-typeset h2 {
+  font-size: 1.25rem;
+  margin-top: 1.4rem;
+}
+
+/* Paragraph spacing a bit tighter */
+
+.md-typeset p {
+  margin: 0.3rem 0 0.6rem;
+}
+
+/* ===== Links, code, blocks ===== */
+
+.md-typeset a {
+  color: var(--sb-accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.md-typeset a:hover {
+  border-bottom-color: var(--sb-accent);
+}
+
+/* Inline code just slightly highlighted */
+
+.md-typeset code {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 4px;
+  padding: 0.08em 0.25em;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Code blocks – keep it clean, editor-like */
+
+.md-typeset pre {
+  border-radius: 4px;
+  border: 1px solid var(--sb-border);
+  background-color: #05060b;
+}
+
+/* Blockquotes = subtle, not dramatic */
+
+.md-typeset blockquote {
+  border-left: 2px solid var(--sb-border);
+  color: var(--sb-muted);
+}
+
+/* ===== Search: small, terminal-ish input ===== */
+
+.md-search__form {
+  background-color: var(--sb-surface);
+  border-radius: 999px;
+  border: 1px solid var(--sb-border);
+}
+
+.md-search__input {
+  font-family: var(--sb-font-mono);
+  font-size: 0.85rem;
+}
+
+/* ===== Blog: “post list in a note app” ===== */
+
+.md-typeset .md-post {
+  background-color: var(--sb-surface);
+  border-radius: 4px;
+  border: 1px solid var(--sb-border);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.8rem;
+  box-shadow: none;
+}
+
+.md-typeset .md-post__title {
+  font-size: 1rem;
+}
+
+.md-typeset .md-post__meta {
+  color: var(--sb-muted);
+  font-size: 0.75rem;
+}
+
+/* ===== Tables / lists ===== */
+
+.md-typeset table {
+  border-color: var(--sb-border);
+}
+
+.md-typeset th {
+  background-color: #10111a;
+}
+
+/* ===== Mobile tweaks ===== */
+
+@media (max-width: 768px) {
+  .md-main__inner {
+    padding: 0.6rem 0.7rem 1.2rem;
+  }
+
+  .md-content__inner {
+    padding: 1rem 1.1rem;
+    border-radius: 4px;
+  }
+}
