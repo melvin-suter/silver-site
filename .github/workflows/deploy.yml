@@ -30,6 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install mkdocs mkdocs-material
+          pip install mkdocs-terminal
 
       - name: Build site
         run: mkdocs build --site-dir site
