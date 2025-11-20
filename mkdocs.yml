@@ -9,6 +9,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.top
+    - navigation.path
     - search.highlight
     - search.suggest
   palette:
@@ -27,7 +28,7 @@ plugins:
 - tags
 
 nav:
-  - Home: home.md
+  - Home: index.md
   - Chamel: chamel.md
   - About: about-me.md
   - Blog:
