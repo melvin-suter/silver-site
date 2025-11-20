@@ -4,12 +4,8 @@ site_url: https://melvin-suter.github.io/silver-site/
 docs_dir: docs
 
 theme:
-  name: material
-  features:
-    - navigation.tabs
-    - navigation.top
-    - search.highlight
-    - search.suggest
+  name: terminal
+  features: []
 
 plugins:
 - search
@@ -20,8 +16,6 @@ nav:
   - Home: home.md
   - Blog:
       - blog/index.md
-  - Guides:
-      - "How this works": guide.md
 
 markdown_extensions:
   - toc:
