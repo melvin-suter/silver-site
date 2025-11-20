@@ -1,0 +1,52 @@
+---
+title: Set ESXi Syslog Hosts with Script
+date: 2025-11-20
+draft: true
+tags:
+- vmware
+---
+
+Here's the script:
+
+```powershell
+$CONFIG = @{
+    "logServer" = "graylog.domain.local";
+    "logPort" = 1514;
+    "logProto" = "tcp";
+    "vcenter" = "vcsa.domain.local";
+    "cluster" = "Cluster1";
+}
+
+# Startup
+Import-Module VCF.PowerCLI
+Set-PowerCLIConfiguration -InvalidCertificateAction Ignore -Confirm:$false | Out-Null
+$syslogURL = "$($CONFIG["logProto"])://$($CONFIG["logServer"]):$($CONFIG["logPort"])"
+
+# Connect
+Connect-VIServer -Server $CONFIG["vcenter"]
+
+# Loop through hosts
+$vmHosts = Get-Cluster -Name $CONFIG["cluster"] | Get-VMHost 
+foreach($vmHost in $vmHosts) {
+    Write-Host "Configuring $($vmHost.Name)"
+
+    # Set syslog
+    $advancedSetting = Get-AdvancedSetting -Entity $vmHost -Name "Syslog.global.logHost"
+    $advancedSetting | Set-AdvancedSetting -Value $syslogURL -Confirm:$false -ErrorAction Stop | Out-null
+
+    # Activate Firewall rule
+    $rule = Get-VMHostFirewallException -VMHost $vmHost | ? {$_.Name -eq "syslog"}
+    if($rule) {
+        $rule | Set-VMHostFirewallException -Enabled:$true -ErrorAction Stop | Out-Null
+    } else {
+        Write-Host "ERROR - Rule not found"
+        exit
+    }
+
+    # Reload syslog service
+    $esxcli = Get-EsxCli -VMHost $vmHost
+    $esxcli.system.syslog.reload.Invoke() | out-null
+}
+
+Disconnect-VIServer -Server $CONFIG["vcenter"] -Confirm:$false
+```
