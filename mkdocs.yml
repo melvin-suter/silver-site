@@ -28,6 +28,8 @@ plugins:
 
 nav:
   - Home: home.md
+  - Chamel: chamel.md
+  - About: about-me.md
   - Blog:
       - blog/index.md
 
