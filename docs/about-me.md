@@ -1,6 +1,6 @@
 ## Melvin Suter - Senior System Engineer
 
-<div style="display: flex; flex-direction: row;overflow: auto;">
+<div style="display: flex; flex-direction: row;overflow: auto; max-height: 8rem;">
 
 <img src="../about-me_files/associate-cloud-infrastructure-and-services-version-3-0 (1).png"/>
 <img src="../about-me_files/broadcom-partner-certification-certified-expert-vmw.10 (1).png"/>
