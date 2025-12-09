@@ -5,13 +5,15 @@ docs_dir: docs
 
 theme:
   name: material
-  logo: logo.png 
+  logo: logo.png
+  favicon: logo.png
   features:
     - navigation.tabs
     - navigation.top
     - navigation.path
     - search.highlight
     - search.suggest
+    - navigation.footer
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -21,6 +23,7 @@ theme:
       scheme: slate
       primary: blue
       accent: indigo
+
 
 plugins:
 - search
@@ -43,6 +46,15 @@ markdown_extensions:
   - tables
 
 extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/melvin-suter
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/suter.dev/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/melvin-suter-2885b9bb/
+  copyright: Copyright &copy; 2025 - now Melvin Suter (Melon-Bytes)
+
   generator: false
 extra_css:
 - sb.css
