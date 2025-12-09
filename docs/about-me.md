@@ -1,6 +1,6 @@
 ## Melvin Suter - Senior System Engineer
 
-<div style="display: flex; flex-direction: row;overflow: auto;">
+<div style="display: flex; flex-direction: row;overflow: auto; gap: 0.5rem;">
 
 <img style="height: 8rem" src="../about-me_files/associate-cloud-infrastructure-and-services-version-3-0 (1).png"/>
 <img style="height: 8rem" src="../about-me_files/broadcom-partner-certification-certified-expert-vmw.10 (1).png"/>
@@ -9,9 +9,9 @@
 <img style="height: 8rem" src="../about-me_files/broadcom-partner-certification-proven-professional-.138 (1).png"/>
 <img style="height: 8rem" src="../about-me_files/broadcom-partner-certification-proven-professional-.148 (1).png"/>
 <img style="height: 8rem" src="../about-me_files/pure-certified-flasharray-implementation-specialist (1).png"/>
-<img src="../about-me_files/pure-storage-flasharray-architect-associate (1).png"/>
-<img src="../about-me_files/specialist-implementation-engineer-vxrail-version-2-0 (1)."/>
-<img src="../about-me_files/vmware-certified-professional-data-center-virtualization-2021 (1).png"/>
+<img style="height: 8rem" src="../about-me_files/pure-storage-flasharray-architect-associate (1).png"/>
+<img style="height: 8rem" src="../about-me_files/specialist-implementation-engineer-vxrail-version-2-0 (1)."/>
+<img style="height: 8rem" src="../about-me_files/vmware-certified-professional-data-center-virtualization-2021 (1).png"/>
 
 </div>
 
