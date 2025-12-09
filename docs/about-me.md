@@ -10,7 +10,7 @@
 <img style="height: 8rem" src="../about-me_files/broadcom-partner-certification-proven-professional-.148 (1).png"/>
 <img style="height: 8rem" src="../about-me_files/pure-certified-flasharray-implementation-specialist (1).png"/>
 <img style="height: 8rem" src="../about-me_files/pure-storage-flasharray-architect-associate (1).png"/>
-<img style="height: 8rem" src="../about-me_files/specialist-implementation-engineer-vxrail-version-2-0 (1)."/>
+<img style="height: 8rem" src="../about-me_files/specialist-implementation-engineer-vxrail-version-2-0 (1).png"/>
 <img style="height: 8rem" src="../about-me_files/vmware-certified-professional-data-center-virtualization-2021 (1).png"/>
 
 </div>
@@ -70,3 +70,9 @@
 - **Monitoring & Tools**: Graylog, Zabbix
 - **Security**: Hardening, Auditing, Compliance
 - **Soft Skills**: Mentoring, Project Communication, Workshops
+
+## Contact Me
+
+You can also find me on instagram @SuterDEV & @themelonbytes or on youtube @melon-bytes
+
+[info@melon-bytes.com](mailto:info@melon-bytes.com)
