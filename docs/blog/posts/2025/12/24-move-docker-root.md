@@ -24,6 +24,7 @@ systemctl disable --now docker.socket
 mv /srv/docker /root/docker
 
 # Now do what you must
+# if need be, stop it again and rm -rf /srv/docker/*
 
 # Lets get the data back
 cp -R -a /root/docker/* /srv/docker/
