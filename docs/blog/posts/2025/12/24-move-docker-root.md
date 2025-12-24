@@ -1,7 +1,7 @@
 ---
 title: move-docker-root
 date: 2025-12-24
-draft: true
+draft: false
 tags:
 - linux
 - docker
@@ -17,8 +17,8 @@ Moving a docker root is not hard, but comes with 1 or 2 gotchas. In my case, I w
 **How To**:
 ```bash
 # Getting Docker to shut up
-systemctl disable --now docker.service
 systemctl disable --now docker.socket
+systemctl disable --now docker.service
 
 # Getting the data out of the way
 mv /srv/docker /root/docker
@@ -30,10 +30,10 @@ mv /srv/docker /root/docker
 cp -R -a /root/docker/* /srv/docker/
 
 # Start docker and check that all is good
-systemctl enable --now docker.socket
 systemctl enable --now docker.service
+systemctl enable --now docker.socket
 
-# Now the fun part, somehow overlay2 mounts the folder from your moved files. fun right? just umount those
+# Now the fun part, somehow overlay2 sometimes mounts the folder from your moved files. fun right? just umount those
 umount /root/docker/overlay2/*/merged
 
 # If so, cleanup after yourself
