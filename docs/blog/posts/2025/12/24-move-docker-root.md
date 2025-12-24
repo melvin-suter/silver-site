@@ -32,6 +32,9 @@ cp -R -a /root/docker/* /srv/docker/
 systemctl enable --now docker.socket
 systemctl enable --now docker.service
 
+# Now the fun part, somehow overlay2 mounts the folder from your moved files. fun right? just umount those
+umount /root/docker/overlay2/*/merged
+
 # If so, cleanup after yourself
 rm -rf /root/docker
 ```
